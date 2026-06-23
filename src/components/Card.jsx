@@ -1,23 +1,19 @@
 import React from 'react'
 
-const Card = (props, children) => {
+const Card = ({name, children}) => {
 
-  const time = "2:44";
-  let open = "true";
+  const time = "day";
+  let open = true;
   
   return (
-    <div>
-    
-      <h3 className="w-6 h-8 bg-rose-600"> welcome {name} </h3>
-      <p>
-        How is your {time} going 
+    <div className="bg-white text-black p-6 rounded-lg shadow-lg mt-4">  
+      <h3 className="text-2xl font-bold mb-2"> welcome {name} </h3>  
+      <p className="mb-2">How is your {time} going</p>
+      <p className="inline-block px-4 py-2 rounded-full bg-amber-400 text-black"> 
+        The card is {open ? "open" : "closed"}
       </p>
-      <p className="w-5 h-5 rounded-full bg-amber-400"> 
-        The card is  {open ? "open" : "close"}
-      </p>
-        <div> {children} </div>
+      <div className="mt-4">{children}</div>
     </div>
-      
   )
 }
 
