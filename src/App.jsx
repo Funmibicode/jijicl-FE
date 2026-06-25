@@ -1,8 +1,8 @@
-
 import {Routes, Route} from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import Favorites from './pages/Favorites'
+import MovieDetails from './pages/MovieDetails'
 
 
 
@@ -18,6 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/> }/>
       <Route path="/Favorites" element={<Favorites/> }/>
+      <Route path="/SpMovie/:imdbID" element={<MovieDetails/>} />
     </Routes> 
     </>
   )
