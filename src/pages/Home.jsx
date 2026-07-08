@@ -1,42 +1,37 @@
-import MovieCard from '../components/MovieCard' 
-import FavoriteButton from '../components/FavoriteButton'
+import ProductCard from '../components/ProductCard' 
+import CartButton from '../components/CartButton'
 import NavBar from '../components/NavBar'
-import { useMovie } from '../context/MovieContext'
-import { Link} from 'react-router-dom'
-
-
-
-
-
+import { useProduct } from '../context/ProductContext'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
-  const { movies, loading, error, addFavorites } = useMovie();
+  const { products, loading, error } = useProduct();
 
   return (
     <div className="bg-rose-600 text-white min-h-screen p-8">  
       <NavBar/>
       
-      <div className="text-3xl font-bold mb-8">Home page</div>
+      <div className="text-3xl font-bold mb-8">Shop</div>
       
       <div className="mt-8">
         {loading ? (
           <div className="text-center text-xl">Loading...</div>
         ) : error ? (
           <div className="text-center text-xl text-yellow-300">Error: {error}</div>
-        ) : movies?.length > 0 ? (
+        ) : products?.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            {movies.map(movie => {
+            {products.map(product => {
   return (
-      <div key={movie.imdbID} className="bg-white/10 backdrop-blur rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
+      <div key={product.id} className="bg-white/10 backdrop-blur rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
       
       {/* Only image + text are clickable */}
-      <Link to={`/SpMovie/${movie.imdbID}`}>
-        <MovieCard movie={movie} />
+      <Link to={`/product/${product.id}`}>
+        <ProductCard product={product} />
       </Link>
       
       {/* Button sits outside Link */}
       <div className="p-4 pt-0">
-        <FavoriteButton movie={movie} />
+        <CartButton product={product} />
       </div>
     </div>
   )
@@ -44,7 +39,7 @@ const Home = () => {
           </div>
         ) : (
           <div className="text-center text-xl mt-10 text-white/70">
-            No movies found. Try searching!
+            No products found.
           </div>
         )}
       </div>

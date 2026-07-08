@@ -1,8 +1,8 @@
 import {Routes, Route} from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
-import Favorites from './pages/Favorites'
-import MovieDetails from './pages/MovieDetails'
+import Cart from './pages/Cart'
+import ProductDetails from './pages/ProductDetails'
 
 
 
@@ -17,12 +17,11 @@ function App() {
   
     <Routes>
       <Route path="/" element={<Home/> }/>
-      <Route path="/Favorites" element={<Favorites/> }/>
-      <Route path="/SpMovie/:imdbID" element={<MovieDetails/>} />
+      <Route path="/Cart" element={<Cart/> }/>
+      <Route path="/product/:id" element={<ProductDetails/>} />
     </Routes> 
     </>
   )
 }
 
 export default App
-

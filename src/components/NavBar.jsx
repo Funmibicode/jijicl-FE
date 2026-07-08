@@ -6,7 +6,7 @@ const NavBar = () => {
 
   const links = [
     {name:'Home' , path:'/'},
-    {name:'Favorites', path:'/Favorites'},
+    {name:'Cart', path:'/Cart'},
   ];
   
   return (
