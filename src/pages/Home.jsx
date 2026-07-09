@@ -8,10 +8,10 @@ const Home = () => {
   const { products, loading, error } = useProduct();
 
   return (
-    <div className="bg-rose-600 text-white min-h-screen p-8">  
+    <div className="bg-[#0A1123] text-white min-h-screen p-8">  
       <NavBar/>
       
-      <div className="text-3xl font-bold mb-8">Shop</div>
+      <div className="text-3xl font-bold mb-8 text-[#8387C3]">Shop</div>
       
       <div className="mt-8">
         {loading ? (
@@ -22,7 +22,7 @@ const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {products.map(product => {
   return (
-      <div key={product.id} className="bg-white/10 backdrop-blur rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
+      <div key={product.id} className="bg-[#3A3E6C]/30 backdrop-blur rounded-2xl overflow-hidden border border-[#3A3E6C] hover:scale-105 transition-transform duration-300 shadow-lg">
       
       {/* Only image + text are clickable */}
       <Link to={`/product/${product.id}`}>
@@ -38,7 +38,7 @@ const Home = () => {
 })}
           </div>
         ) : (
-          <div className="text-center text-xl mt-10 text-white/70">
+          <div className="text-center text-xl mt-10 text-[#959BB5]">
             No products found.
           </div>
         )}
